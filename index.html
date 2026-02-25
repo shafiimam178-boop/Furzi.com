@@ -2,95 +2,234 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Furzi – Classic & Premium Clothing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Furzi | Classic & Premium Clothing</title>
 <style>
-body{
-    margin:0;
+  /* ===== Global Styles ===== */
+  body {
+    margin: 0;
     font-family: 'Georgia', serif;
-    background:#ffffff;
-    color:#222;
-}
-header{
-    padding:40px;
-    text-align:center;
-    border-bottom:1px solid #eee;
-}
-header img{
-    width:140px;
-}
-section{
-    max-width:900px;
-    margin:60px auto;
-    padding:0 20px;
-}
-h1{
-    font-size:42px;
-    font-weight:normal;
-}
-p{
-    font-size:18px;
-    line-height:1.7;
-    color:#444;
-}
-.product{
-    border:1px solid #eee;
-    padding:30px;
-    margin-top:40px;
-}
-.button{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 28px;
-    border:1px solid #000;
-    text-decoration:none;
-    color:#000;
-    font-size:16px;
-}
-.button:hover{
-    background:#000;
-    color:#fff;
-}
-footer{
-    text-align:center;
-    padding:30px;
-    border-top:1px solid #eee;
-    font-size:14px;
-    color:#777;
-}
+    background: #ffffff;
+    color: #222;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* ===== Header ===== */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 100;
+  }
+  header img {
+    height: 60px;
+  }
+  nav a {
+    margin-left: 25px;
+    font-weight: 600;
+    color: #222;
+    transition: 0.3s;
+  }
+  nav a:hover { color: #f5c400; }
+
+  /* ===== Hero Section ===== */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px;
+    background-image: url('images/hero.jpg'); /* TODO: Add hero.jpg image to images/ directory */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+  .hero h1 {
+    font-size: 48px;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+  }
+  .hero p {
+    font-size: 18px;
+    margin: 20px 0;
+    max-width: 700px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+  }
+  .hero .btn {
+    padding: 16px 36px;
+    background: #f5c400;
+    color: #111;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+  .hero .btn:hover {
+    background: #e0b300;
+  }
+
+  /* ===== Products Section ===== */
+  section.products {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  section.products h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #111;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  .product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    background: #fff;
+  }
+  .product-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .product-card img {
+    width: 100%;
+    display: block;
+  }
+  .product-card h3 {
+    color: #f5c400;
+    margin: 15px 0 10px 0;
+  }
+  .product-card p {
+    font-size: 15px;
+    color: #555;
+    margin: 0 15px 15px 15px;
+  }
+  .product-card .btn {
+    margin-bottom: 20px;
+    padding: 12px 24px;
+    display: inline-block;
+    background: #f5c400;
+    color: #111;
+    font-weight: 600;
+    border-radius: 6px;
+  }
+  .product-card .btn:hover { background: #e0b300; }
+
+  /* ===== About Section ===== */
+  section.about {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  section.about h2 { font-size: 32px; margin-bottom: 20px; }
+  section.about p { color: #555; line-height: 1.7; font-size: 17px; }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    color: #777;
+    border-top: 1px solid #eee;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 15px 20px;
+    }
+    header img {
+      height: 50px;
+      margin-bottom: 15px;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    nav a {
+      margin-left: 0;
+    }
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 16px; }
+  }
 </style>
 </head>
 
 <body>
 
 <header>
-    <img src="logo.png" alt="Furzi Logo">
+  <img src="images/logo.png" alt="Furzi Logo">
+  <nav>
+    <a href="#products">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<section>
-<h1>Classic Clothing. Timeless Quality.</h1>
+<section class="hero">
+  <h1>Classic & Timeless Clothing</h1>
+  <p>Furzi curates premium, elegant, and high-quality clothing for everyday style. Browse our handpicked collection.</p>
+  <a href="#products" class="btn">Shop Now</a>
+</section>
 
-<p>
-Furzi is a curated destination for classic and premium clothing.
-We focus on timeless designs, superior fabric quality, and everyday elegance.
-Each product featured here is carefully selected for durability, comfort, and refined style.
-</p>
+<section class="products" id="products">
+  <h2>Featured Collection</h2>
+  <div class="product-grid">
+    <!-- TODO: Add product1.jpg to product4.jpg images to images/ directory -->
+    <!-- TODO: Replace YOUR_AMAZON_AFFILIATE_LINK placeholders with actual Amazon affiliate links -->
+    <div class="product-card">
+      <img src="images/product1.jpg" alt="Classic Cotton Shirt">
+      <h3>Classic Cotton Shirt</h3>
+      <p>Soft cotton, minimal design, everyday comfort.</p>
+      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank">View on Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="images/product2.jpg" alt="Premium Solid Shirt">
+      <h3>Premium Solid Shirt</h3>
+      <p>Elegant look, long-lasting quality, superior fabric.</p>
+      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank">View on Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="images/product3.jpg" alt="Everyday Casual Wear">
+      <h3>Everyday Casual Wear</h3>
+      <p>Comfort fit, timeless colors, perfect for daily wear.</p>
+      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank">View on Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="images/product4.jpg" alt="Luxury Linen Shirt">
+      <h3>Luxury Linen Shirt</h3>
+      <p>Premium linen, soft texture, ideal for summer elegance.</p>
+      <a class="btn" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank">View on Amazon</a>
+    </div>
+  </div>
+</section>
 
-<div class="product">
-<h2>Premium Cotton Shirt</h2>
-<p>
-Soft breathable fabric · Minimal design · Long-lasting quality  
-</p>
+<section class="about" id="about">
+  <h2>About Furzi</h2>
+  <p>Furzi is committed to providing classic and timeless clothing with a focus on quality, comfort, and style. Each item is carefully selected for durability, elegance, and premium feel. We want every customer to feel confident and stylish in our curated collection.</p>
+</section>
 
-<a class="button" href="YOUR_AMAZON_AFFILIATE_LINK" target="_blank">
-Buy on Amazon
-</a>
-</div>
+<section class="about" id="contact">
+  <h2>Contact Us</h2>
+  <p>Have questions or feedback? We'd love to hear from you. Reach out to us through our social media channels on Pinterest and Instagram, or check back here for updates on how to connect with the Furzi team.</p>
 </section>
 
 <footer>
-© 2026 Furzi · Affiliate Disclosure: We may earn from qualifying purchases.
+  © 2026 Furzi · Affiliate Disclosure: We earn from qualifying purchases. All recommendations are genuine.<br>
+  Follow us on Pinterest & Instagram
 </footer>
 
 </body>
